@@ -1,10 +1,19 @@
-const schemas = require('../schemas');
-const errors = require('../errors');
+
 const users = require('../couchdb').use('users');
 
 // Create user
-exports.create = schemas.validating('user', createUser);
+//exports.create = schemas.validating('user', createUser);
 
- function createUser(user, cb) {  
-  users.insert(user, user.email, errors.wrapNano(cb))
+exports.create =function createUser(user, cb) {  
+  users.insert(user, cb)
+}
+
+//exports.update = schemas.validating('user', updateUser);
+exports.update =function updateUser(user, cb) {  
+  users.insert(user, cb)
+}
+
+exports.delete =function deleteUser(user, cb) {
+  //console.log(user)  
+  users.destroy(user, cb)
 }

@@ -1,6 +1,6 @@
 const initCouch = require('./init_couch');
 
-initCouch((err)=> {  
+initCouch((err)=> { 
   if (err) {
     throw err
   }
